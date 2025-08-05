@@ -38,20 +38,38 @@ uv run command_name
 ```
 
 ### Code Quality Tools
-Code quality tools are configured in pyproject.toml with Black, isort, flake8, and mypy:
+
+#### Prerequisites
+Install development dependencies before using code quality tools:
 ```bash
-# Format code and run all quality checks
-./scripts/format.sh
-
-# Run linting and type checking only (read-only)
-./scripts/lint.sh
-
-# Individual commands
-uv run black backend/ main.py    # Format code
-uv run isort backend/ main.py    # Sort imports
-uv run flake8 backend/ main.py   # Lint code
-uv run mypy backend/ main.py     # Type checking
+uv sync --group dev
 ```
+
+#### Available Scripts
+
+**Format Script (Modifies Files)**
+```bash
+./scripts/format.sh
+```
+Use this script when you want to automatically fix code style issues. It will:
+1. Sort imports with isort
+2. Format code with Black 
+3. Run flake8 linting (reports remaining issues)
+4. Run mypy type checking
+
+**Lint Script (Read-Only Checks)**
+```bash
+./scripts/lint.sh
+```
+Use this script to verify code quality without modifying files. Perfect for:
+- Pre-commit checks
+- CI/CD pipelines
+- Verifying code before submitting PRs
+
+Exit code 0 = all checks pass, non-zero = issues found.
+
+#### Troubleshooting
+If scripts aren't executable: `chmod +x scripts/*.sh`
 
 ### Application Access
 - Web Interface: http://localhost:8000
