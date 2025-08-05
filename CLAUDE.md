@@ -37,6 +37,22 @@ uv run python script.py
 uv run command_name
 ```
 
+### Code Quality Tools
+Code quality tools are configured in pyproject.toml with Black, isort, flake8, and mypy:
+```bash
+# Format code and run all quality checks
+./scripts/format.sh
+
+# Run linting and type checking only (read-only)
+./scripts/lint.sh
+
+# Individual commands
+uv run black backend/ main.py    # Format code
+uv run isort backend/ main.py    # Sort imports
+uv run flake8 backend/ main.py   # Lint code
+uv run mypy backend/ main.py     # Type checking
+```
+
 ### Application Access
 - Web Interface: http://localhost:8000
 - API Documentation: http://localhost:8000/docs
