@@ -7,21 +7,25 @@
 
 /* CSS Variables - Dark Theme (Default) */
 :root {
-    --primary-color: #2563eb;
-    --primary-hover: #1d4ed8;
+    --primary-color: #ea580c;
+    --primary-hover: #dc2626;
     --background: #0f172a;
     --surface: #1e293b;
     --surface-hover: #334155;
     --text-primary: #f1f5f9;
     --text-secondary: #94a3b8;
     --border-color: #334155;
-    --user-message: #2563eb;
+    --user-message: #ea580c;
     --assistant-message: #374151;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
     --radius: 12px;
-    --focus-ring: rgba(37, 99, 235, 0.2);
+    --focus-ring: rgba(234, 88, 12, 0.2);
     --welcome-bg: #1e3a5f;
-    --welcome-border: #2563eb;
+    --welcome-border: #ea580c;
+    --orange-accent: #ea580c;
+    --orange-hover: #dc2626;
+    --orange-light: #fed7aa;
+    --orange-glow: rgba(234, 88, 12, 0.1);
 }
 
 /* Light Theme Variables */
@@ -92,7 +96,7 @@ header {
 header h1 {
     font-size: 1.75rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--orange-accent) 0%, #dc2626 50%, #fed7aa 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -125,8 +129,9 @@ header h1 {
 
 .theme-toggle:hover {
     background: var(--surface-hover);
-    border-color: var(--primary-color);
+    border-color: var(--orange-accent);
     transform: scale(1.05);
+    box-shadow: 0 0 20px var(--orange-glow);
 }
 
 .theme-toggle:focus {
@@ -358,10 +363,10 @@ header h1 {
 
 .source-link:hover {
     color: white;
-    background: var(--primary-color);
-    border-color: var(--primary-color);
+    background: var(--orange-accent);
+    border-color: var(--orange-accent);
     transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.3), 0 0 15px var(--orange-glow);
     text-decoration: none;
 }
 
@@ -493,8 +498,8 @@ header h1 {
 
 #chatInput:focus {
     outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px var(--focus-ring);
+    border-color: var(--orange-accent);
+    box-shadow: 0 0 0 3px var(--focus-ring), 0 0 20px var(--orange-glow);
 }
 
 #chatInput::placeholder {
@@ -522,9 +527,9 @@ header h1 {
 }
 
 #sendButton:hover:not(:disabled) {
-    background: var(--primary-hover);
+    background: var(--orange-hover);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3), 0 0 20px var(--orange-glow);
 }
 
 #sendButton:active:not(:disabled) {
@@ -607,12 +612,13 @@ header h1 {
 
 .stats-header:focus,
 .suggested-header:focus {
-    color: var(--primary-color);
+    color: var(--orange-accent);
 }
 
 .stats-header:hover,
 .suggested-header:hover {
-    color: var(--primary-color);
+    color: var(--orange-accent);
+    text-shadow: 0 0 10px var(--orange-glow);
 }
 
 .stats-header::-webkit-details-marker,
@@ -661,8 +667,9 @@ details[open] .suggested-header::before {
     display: inline-block;
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--primary-color);
+    color: var(--orange-accent);
     margin-left: 0.5rem;
+    text-shadow: 0 0 10px var(--orange-glow);
 }
 
 .stat-label {
@@ -695,7 +702,7 @@ details[open] .suggested-header::before {
 
 .course-titles-header:focus {
     outline: none;
-    color: var(--primary-color);
+    color: var(--orange-accent);
 }
 
 .course-titles-header::-webkit-details-marker {
@@ -766,7 +773,8 @@ details[open] .suggested-header::before {
 }
 
 .new-chat-button:hover {
-    color: var(--primary-color);
+    color: var(--orange-accent);
+    text-shadow: 0 0 10px var(--orange-glow);
 }
 
 /* Suggested Questions in Sidebar */
@@ -797,9 +805,10 @@ details[open] .suggested-header::before {
 
 .suggested-item:hover {
     background: var(--surface-hover);
-    border-color: var(--primary-color);
-    color: var(--primary-color);
+    border-color: var(--orange-accent);
+    color: var(--orange-accent);
     transform: translateX(2px);
+    box-shadow: 0 0 15px var(--orange-glow);
 }
 
 /* Responsive Design */
